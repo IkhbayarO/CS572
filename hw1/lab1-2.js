@@ -7,4 +7,3 @@ String.prototype.filterWords = function (input) {
 }
 
 console.log("This house is nice!".filterWords(["house", "nice"]));
-

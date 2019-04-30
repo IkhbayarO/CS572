@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW2-1</title>
+</head>
+<body>
+    <pre>
+        1. What will  be the order of execution between setImmediate(callback) and setTimeout(callback, 0)
+
+            setImmediate(callback) would be executed first because setTimeout(callback, 0) run after a minimum threshold
+            in ms has elapsed and setImmediate(callback) designed to execute a script once the current poll phase completed.
+
+        2. Explain the difference between process.nextTick and setImmediate? What will be the execution order?
+
+            process.nextTick is not event loop while setImmediate is event loop. Process.nextTick is high priority to execute than
+            setImmediate.
+
+        3. Name 10 core modules that Node provides by default.
+            1. http,
+            2. https,
+            3. os,
+            4. Net,
+            5. Path,
+            6. Process,
+            7. Stream,
+            8. REPL,
+            9. Console,
+           10. Events
+    </pre>
+</body>
+</html>
