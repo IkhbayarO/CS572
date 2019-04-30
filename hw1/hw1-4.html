@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-4</title>
+</head>
+<body>
+<p>Command option J</p>
+<script>
+    const item = {
+        "name": "Avacoda",
+        "type": "Fruit",
+        "category": "Food",
+        "price": 200
+    };
+    const applyCoupon = item => discount => {
+        if (item !== null && discount >= 0 && discount <= 100) {
+            const price = item.price;
+            const afterDiscount = price - (price * discount) / 100;
+            item.price = afterDiscount;
+        }
+        return item;
+    }
+    console.log(applyCoupon(item)(10).price === 180);
+
+</script>
+</body>
+</html>
