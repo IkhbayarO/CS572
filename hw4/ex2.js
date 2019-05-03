@@ -11,7 +11,7 @@ function sendFile(reqResData) {
 fileSubject.subscribe(sendFile);
 
 http.createServer((req, res) => {
-    const child = fork("./readFile.js");
+    const child = fork("./hw4/readFile.js");
     child.send(req.url);
     child.on("message", fileData => {
         fileSubject.next({
