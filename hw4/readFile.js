@@ -1,10 +1,12 @@
 const fs = require("fs");
-const url = require("url");
+function myReader(urlStr, cb){
+    fs.readFile(urlStr, (err, data)=>{
+        cb(data.toString());
+    })
+}
 
 process.on("message", (urlStr) => {
-    let pathToFile = url.parse(urlStr, true).query.url;
-    let src = fs.createReadStream(pathToFile);
-    let fileData = "";
-    src.on("data", (dataChunk) => fileData += dataChunk);
-    src.on("end", () => process.send(fileData));
+    myReader(urlStr, (data)=>{
+        process.send(data);
+    })
 });

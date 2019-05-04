@@ -1,23 +1,15 @@
-const {Subject} = require("rxjs");
+
 const http = require("http");
-const fork = require("child_process");
+const {fork} = require("child_process");
 
-const fileSubject = new Subject();
+const server=http.createServer();
+const path=require("path");
 
-function sendFile(reqResData) {
-    reqResData.res.end(reqResData.fileData);
-}
-
-fileSubject.subscribe(sendFile);
-
-http.createServer((req, res) => {
-    const child = fork("./hw4/readFile.js");
-    child.send(req.url);
-    child.on("message", fileData => {
-        fileSubject.next({
-            req,
-            res,
-            fileData
-        });
+server.on("request", (req, res)=>{
+    const childProcess=fork("readFile.js");
+    childProcess.send(path.join(__dirname, "test.txt"));
+    childProcess.on("message", data=>{
+        res.end(data);
     });
-}).listen(3030, () => console.log("Listening on localhost, port 3030"));
+});
+server.listen(3000);
