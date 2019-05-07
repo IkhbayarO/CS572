@@ -1,0 +1,11 @@
+{
+isbn: String,
+title: String,
+authors: [{firstName: String, lastName: String}],
+keywords: [String],
+borrowedBooks: [
+    returnDate: Date,
+    students: [{id: String, name: String, phone: String, address: String}]
+]
+librarian: {username: String, password: String}
+}
