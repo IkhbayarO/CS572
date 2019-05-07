@@ -13,6 +13,6 @@ class Grades {
 }
 
 const grades = new Grades();
-grades.add(1, "Khangarid Davaadorj", "cs572", "97");
+grades.add("Ikhbayar Otgonbaasan", "CS572", "97");
 
 module.exports = grades;

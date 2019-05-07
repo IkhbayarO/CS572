@@ -49,8 +49,8 @@ app.listen(port, () => console.log(`Server started with port ${port}`));
 async function getTable(res) {
     try {
         const users = await axios.get("https://randomuser.me/api/?results=" + totalNumberOfUser);
-        // res.statusCode = 200;
-        // res.setHeader("Content-type", "text/html");
+        res.statusCode = 200;
+        res.setHeader("Content-type", "text/html");
         res.write(wrap(users.data.results.slice(current, next)));
         res.end();
     } catch (e) {
@@ -93,7 +93,9 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-
+th{
+background-color: greenyellow;
+}
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
