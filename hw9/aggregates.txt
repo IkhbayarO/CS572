@@ -1,0 +1,5 @@
+db.zips.aggregate([
+    {$match: {state:"IA"}},
+    {$project: {_id:0, zipCodes: "$_id"}}
+]);
+db.zips.aggregate([{$match: {state: "WA"}}, {$project: {_id:0, zipCode: "$_id"}}]);
