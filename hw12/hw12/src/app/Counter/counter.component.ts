@@ -8,13 +8,14 @@ import {Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
     <button id="inc" (click)="increment()">+</button>
   `,
   styles: [
-    `
-    #dec{
-      width: 30px;
-      height: 30px;
-      background-color: aqua;
-    }
-      #inc{
+      `
+      #dec {
+        width: 30px;
+        height: 30px;
+        background-color: aqua;
+      }
+
+      #inc {
         width: 30px;
         height: 30px;
         background-color: greenyellow;
@@ -28,15 +29,17 @@ export class CounterComponent implements OnInit {
 
   constructor() {
     this.counterValue = 0;
-    this.counterChange=new EventEmitter();
+    this.counterChange = new EventEmitter();
   }
 
   ngOnInit() {
   }
-  decrease(){
+
+  decrease() {
     this.counterChange.emit(--this.counterValue);
   }
-  increment(){
+
+  increment() {
     this.counterChange.emit(++this.counterValue);
   }
 }

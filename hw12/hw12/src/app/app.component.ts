@@ -3,20 +3,30 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <div>
-<app-counter [counterValue]="counter" (counterChange)="counterValue($event)"></app-counter>
-    </div>
     <div>
-      Component Counter Value={{counter}}
+      <app-counter [counterValue]="counter1" (counterChange)="counterValue1($event)"></app-counter>
+      <div>
+        Component Counter Value1={{counter1}}
+      </div>
     </div>
+
+    <div>
+      <app-counter [counterValue]="counter2" (counterChange)="counterValue2($event)"></app-counter>
+      <div>
+        Component Counter Value2={{counter2}}
+      </div>
+    </div>
+
   `,
   styles: [
-    `
-      div{
-        display: block;
+      `
+      div {
+        margin-left: auto;
+        margin-right: auto;
         padding: 0;
       }
-      input{
+
+      input {
         text-align: center;
         width: 60px;
         height: 20px;
@@ -26,10 +36,15 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'hw12';
-  counter=6;
+  counter1 = 6;
+  counter2 = 0;
 
-  counterValue(counterValue){
-    this.counter=counterValue;
+  counterValue1(counterValue) {
+    this.counter1 = counterValue;
+  }
+
+  counterValue2(counterValue) {
+    this.counter2 = counterValue;
   }
 }
 
