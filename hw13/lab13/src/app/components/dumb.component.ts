@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
      Make bigger by 2px
    </div>
     <input type="text" #input (keyup)="pipeData">
-      <p>{{input.value| multi}}</p>
+      <p>{{input.value| multi:3}}</p>
     
   `,
   styles: []

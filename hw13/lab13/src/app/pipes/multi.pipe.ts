@@ -8,7 +8,7 @@ export class MultiPipe implements PipeTransform {
   transform(value: string, args?: number): string {
     let s="";
     for(let i=0; i<args; i++){
-      s+=value;
+      s+=value+" ";
     }
     return s;
   }
