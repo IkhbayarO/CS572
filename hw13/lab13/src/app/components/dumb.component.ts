@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dumb',
   template: `
-    <h1 [isVisible]="h1Visibility">Visibility header</h1>
+    <h1 isVisible="h1Visibility">Visibility header</h1>
     <ul>
       <li *ngFor="let object of objects, let i=index">{{i+1}}: {{object}}</li>
     </ul>
@@ -12,7 +12,9 @@ import { Component, Input, OnInit } from '@angular/core';
    </div>
     <input type="text" #input (keyup)="pipeData">
       <p>{{input.value| multi:3}}</p>
-    
+    <ul>
+      <li *ngFor="let name of data, let i=index;" [appEven]="i">{{name}}</li>
+    </ul>
   `,
   styles: []
 })
@@ -22,6 +24,7 @@ export class DumbComponent implements OnInit {
   pipeData=new Promise(((resolve, reject) => {
     setTimeout(()=>resolve("Data is here"), 1000);
   }));
+  data=["zero", "one", "two", "tree"];
   constructor() { }
 
   ngOnInit() {

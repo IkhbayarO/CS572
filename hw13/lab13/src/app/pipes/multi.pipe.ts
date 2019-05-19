@@ -10,6 +10,6 @@ export class MultiPipe implements PipeTransform {
     for(let i=0; i<args; i++){
       s+=value+" ";
     }
-    return s;
+    return s.trim();
   }
 }
